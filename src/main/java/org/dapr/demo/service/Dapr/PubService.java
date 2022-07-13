@@ -25,7 +25,7 @@ public class PubService {
 
 
     public PubService() {
-        //this.init();
+        this.init();
     }
 
     public void init(){
@@ -38,22 +38,17 @@ public class PubService {
     }
 
     public void publish(String message) throws Exception {
-        try (DaprClient daprClient = new DaprClientBuilder().build()) {
-            //Publishing messages
-            try {
-                daprClient.publishEvent(
-                        PUBSUB_NAME,
-                        TOPIC_NAME,
-                        message,
-                        singletonMap(Metadata.TTL_IN_SECONDS, MESSAGE_TTL_IN_SECONDS)).block();
-                System.out.println("Published message: " + message);
-            } catch (Exception e) {
-                throw  e;
-            }
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+        //Publishing messages
+        try {
+            this.client.publishEvent(
+                    PUBSUB_NAME,
+                    TOPIC_NAME,
+                    message,
+                    singletonMap(Metadata.TTL_IN_SECONDS, MESSAGE_TTL_IN_SECONDS)).block();
+            System.out.println("Published message: " + message);
+        } catch (Exception e) {
+            throw  e;
         }
-
 
     }
 }

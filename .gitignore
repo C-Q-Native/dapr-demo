@@ -14,3 +14,4 @@ common/src/main/resources/*.yml
 # Icon must end with two \r
 Icon^M^M
 */*.iml
+*.iml

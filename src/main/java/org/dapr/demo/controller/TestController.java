@@ -2,6 +2,8 @@ package org.dapr.demo.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.dapr.Topic;
+import io.dapr.client.DaprClient;
+import io.dapr.client.DaprClientBuilder;
 import io.dapr.client.domain.CloudEvent;
 import org.dapr.demo.base.response.Result;
 import org.dapr.demo.base.response.ResultResponse;
@@ -53,7 +55,14 @@ public class TestController {
 
     @RequestMapping(value = "test")
     public Result<Object> test () {
-        return ResultResponse.getSuccessResult("test");
+        try {
+            DaprClient daprClient = new DaprClientBuilder().build();
+            System.out.println(daprClient);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return ResultResponse.getSuccessResult("daprClient");
     }
 
 

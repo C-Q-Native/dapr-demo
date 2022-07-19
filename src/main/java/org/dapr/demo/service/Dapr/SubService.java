@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import reactor.core.publisher.Mono;
 
-//@Component
+@Component
 public class SubService {
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
@@ -27,6 +27,7 @@ public class SubService {
         });
     }
 
+    /*
     @Topic(name = "testingtopic", pubsubName = "${myAppProperty:messagebus}",
             rule = @Rule(match = "event.type == \"v2\"", priority = 1))
     @PostMapping(path = "/testingtopicV2")
@@ -39,5 +40,5 @@ public class SubService {
                 throw new RuntimeException(e);
             }
         });
-    }
+    }*/
 }

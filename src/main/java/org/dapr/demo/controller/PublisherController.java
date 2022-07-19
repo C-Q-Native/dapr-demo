@@ -19,7 +19,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping(value = "/test")
-public class TestController {
+public class PublisherController {
 
     @Autowired
     private HttpRequest httpRequest;

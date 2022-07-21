@@ -19,7 +19,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping(value = "/test")
-public class TestController {
+public class PublisherController {
 
     @Autowired
     private HttpRequest httpRequest;
@@ -39,31 +39,5 @@ public class TestController {
         }
         return ResultResponse.getSuccessResult("Done");
     }
-
-    @Topic(name = "testingtopic", pubsubName = "${myAppProperty:messagebus}")
-    @RequestMapping(path = "/sub")
-    public Mono<Void> handleMessage(@RequestBody(required = false) CloudEvent<String> cloudEvent) {
-        return Mono.fromRunnable(() -> {
-            try {
-                System.out.println("Subscriber got: " + cloudEvent.getData());
-                System.out.println("Subscriber got: " + OBJECT_MAPPER.writeValueAsString(cloudEvent));
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        });
-    }
-
-    @RequestMapping(value = "test")
-    public Result<Object> test () {
-        try {
-            DaprClient daprClient = new DaprClientBuilder().build();
-            System.out.println(daprClient);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-        return ResultResponse.getSuccessResult("daprClient");
-    }
-
 
 }

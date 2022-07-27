@@ -1,0 +1,27 @@
+server:
+  port: ${APP_PORT:8080}
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: dapr-demo
+    needIddetect: false #是否需要开启实名制
+  devtools:
+    restart:
+      poll-interval: "2s"
+      quiet-period: "1s"
+  cache:
+    redis:
+      #use-key-prefix: true
+      #key-prefix: dev
+      cache-null-values: false
+      #time-to-live: 40s
+  thread:
+    core-pool-size: 4
+    max-pool-size: 12
+    queue-capacity: 12
+    name-prefix: erp-async-service-
+  dapr:
+    dapr-port: 30005
+    dapr-app-id: dapr-demo
+

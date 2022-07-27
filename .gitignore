@@ -8,8 +8,6 @@
 .LSOverride
 app.log*
 api/app.log*
-src/main/resources/application.yml
-common/src/main/resources/*.yml
 */target/*
 # Icon must end with two \r
 Icon^M^M

@@ -13,7 +13,7 @@ import org.apache.commons.cli.Options;
 public class Application {
 
     public static void main(String[] args) {
-
+        /*
         try {
             Options options = new Options();
             options.addRequiredOption("p", "port", true, "The port this app will listen on");
@@ -27,6 +27,11 @@ public class Application {
         } catch(Exception e) {
             System.out.println(e);
         }
-
+        */
+        try {
+            SpringApplication.run(Application.class, args);
+        } catch(Exception e) {
+            System.out.println(e);
+        }
     }
 }

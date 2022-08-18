@@ -12,4 +12,9 @@ public class TestController {
     public Result<Object> test () {
         return ResultResponse.getSuccessResult("hello , test");
     }
+
+    @RequestMapping(value = "testConfirm")
+    public Result<Object> testConfirm () {
+        return ResultResponse.getSuccessResult("hello , test confirm");
+    }
 }

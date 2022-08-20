@@ -7,6 +7,9 @@ import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Options;
+import io.dapr.actors.runtime.ActorRuntime;
+import java.time.Duration;
+import org.dapr.demo.service.Dapr.Actors.ActorImpl;
 
 @SpringBootApplication
 //@ComponentScan(basePackages = {"org.dapr.*"})
@@ -29,6 +32,7 @@ public class Application {
         }
         */
         try {
+            ActorRuntime.getInstance().registerActor(ActorImpl.class);
             SpringApplication.run(Application.class, args);
         } catch(Exception e) {
             System.out.println(e);

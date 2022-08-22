@@ -18,6 +18,7 @@ public class TestController {
 
     @RequestMapping(value = "testConfirm")
     public Result<Object> testConfirm (@RequestBody JSONObject data) {
+        System.out.println(data);
         return ResultResponse.getSuccessResult(data);
     }
 }

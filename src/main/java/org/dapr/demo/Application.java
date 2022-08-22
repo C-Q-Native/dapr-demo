@@ -32,7 +32,7 @@ public class Application {
         }
         */
         try {
-            ActorRuntime.getInstance().registerActor(ActorImpl.class);
+            // ActorRuntime.getInstance().registerActor(ActorImpl.class);
             SpringApplication.run(Application.class, args);
         } catch(Exception e) {
             System.out.println(e);

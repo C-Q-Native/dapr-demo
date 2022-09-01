@@ -8,11 +8,8 @@ public interface Actor {
 
     void registerReminder();
 
-    @ActorMethod(name = "echo_message")
+    @ActorMethod(name = "say")
     String say(String something);
 
     void clock(String message);
-
-    @ActorMethod(returns = Integer.class)
-    Mono<Integer> incrementAndGet(int delta);
 }

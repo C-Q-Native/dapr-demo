@@ -86,7 +86,7 @@ public class ActorImpl extends AbstractActor implements Actor, Remindable<Intege
      * @param delta Amount to be added to counter.
      * @return Mono response for the incremented value.
      */
-    @Override
+    // @Override
     public Mono<Integer> incrementAndGet(int delta) {
         return super.getActorStateManager().contains("counter")
                 .flatMap(exists -> exists ? super.getActorStateManager().get("counter", int.class) : Mono.just(0))

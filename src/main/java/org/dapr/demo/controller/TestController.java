@@ -21,4 +21,10 @@ public class TestController {
         System.out.println(data);
         return ResultResponse.getSuccessResult(data);
     }
+
+    @RequestMapping(value = "testCancel")
+    public Result<Object> testCancel (@RequestBody JSONObject data) {
+        System.out.println(data);
+        return ResultResponse.getSuccessResult(data);
+    }
 }
